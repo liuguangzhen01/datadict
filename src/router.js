@@ -9,15 +9,19 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: Home
-    },
-    {
-      path: '/AntDesignVueExample',
-      name: 'AntDesignVueExample',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ '@/views/AntDesignVueExample.vue')
+      component: Home,
+      children: [
+        {
+          path: '/AntDesignVue',
+          name: 'AntDesignVue',
+          component: () => import('@/views/AntDesignVue.vue')
+        },
+        {
+          path: '/HelloWorld',
+          name: 'HelloWorld',
+          component: () => import('@/views/HelloWorld.vue')
+        }
+      ]
     }
   ]
 })

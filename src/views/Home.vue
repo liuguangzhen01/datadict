@@ -1,16 +1,14 @@
 <template lang="pug">
-  div(class="home")
-    img(alt="Vue logo" src="../assets/logo.png")
-    HelloWorld(msg="Welcome to Your Vue.js App")
+  global-layout
 </template>
 
 <script>
-import HelloWorld from '@/components/HelloWorld.vue'
+import GlobalLayout from '@/layouts/GlobalLayout.vue'
 
 export default {
   name: 'home',
   components: {
-    HelloWorld
+    GlobalLayout
   }
 }
 </script>

@@ -41,7 +41,7 @@
       li
         a(href="https://vue.ant.design/docs/vue/introduce/" target="_blank") ant-desogn-vue
       li
-        a(href="javascript:void(0);" @click="toAntDesognVueExample()") AntDesognVueExample
+        //- a(href="javascript:void(0);" @click="toAntDesognVueExample()") AntDesognVueExample
 </template>
 
 <script>
@@ -51,9 +51,9 @@ export default {
     msg: String
   },
   methods: {
-    toAntDesognVueExample () {
-      this.$router.push({ path: '/AntDesignVueExample' })
-    }
+    // toAntDesognVueExample () {
+    //   this.$router.push({ path: '/AntDesignVueExample' })
+    // }
   }
 }
 </script>
