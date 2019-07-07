@@ -40,8 +40,6 @@
     ul
       li
         a(href="https://vue.ant.design/docs/vue/introduce/" target="_blank") ant-desogn-vue
-      li
-        //- a(href="javascript:void(0);" @click="toAntDesognVueExample()") AntDesognVueExample
 </template>
 
 <script>
@@ -50,15 +48,10 @@ export default {
   props: {
     msg: String
   },
-  methods: {
-    // toAntDesognVueExample () {
-    //   this.$router.push({ path: '/AntDesignVueExample' })
-    // }
-  }
+  methods: {}
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 h3 {
   margin: 40px 0 0;

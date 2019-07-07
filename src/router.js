@@ -11,15 +11,22 @@ export default new Router({
       name: 'home',
       component: Home,
       children: [
+        // antDesignVue目录下的页面
         {
           path: '/AntDesignVue',
           name: 'AntDesignVue',
-          component: () => import('@/views/AntDesignVue.vue')
+          component: () => import('@/views/antDesignVue/AntDesignVue.vue')
         },
+        // vueJs目录下的页面
         {
           path: '/HelloWorld',
           name: 'HelloWorld',
-          component: () => import('@/views/HelloWorld.vue')
+          component: () => import('@/views/vueJs/HelloWorld.vue')
+        },
+        {
+          path: '/VueLearning',
+          name: 'VueLearning',
+          component: () => import('@/views/vueJs/VueLearning.vue')
         }
       ]
     }
