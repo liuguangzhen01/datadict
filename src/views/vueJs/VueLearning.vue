@@ -30,11 +30,35 @@
           a-col(:span="6")
             a-button(@click="getNode") 获取key='1-2-1'的节点
             a-tree(:treeData="treeData" @select="onSelect")
+      a-collapse-panel(class="panel" header="vue.js 2.0 监听(watch)的用法" key="4")
+        a-row(:gutter="12")
+          a-col(:span="6")
+            a-button(@click="changeValues") 改变values的值
+      a-collapse-panel(class="panel" header="ant-design-vue的form表单性能" key="5")
+        a-form(:form="antdForm" layout="vertical")
+          a-form-item(label="username" :label-col="formItemLayout.labelCol" :wrapper-col="formItemLayout.wrapperCol")
+            a-input(v-decorator="['username', { rules: [{ required: true, message: 'Please input your username' }] }]")
+          a-form-item(label="nickname" :label-col="formItemLayout.labelCol" :wrapper-col="formItemLayout.wrapperCol")
+            a-input(v-decorator="['nickname', { rules: [{ required: true, message: 'Please input your nickname' }] }]")
+    el-collapse
+      el-collapse-item(title="element-ui的form表单性能" name="1") 
+        el-form(:model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm")
+          el-form-item(label="活动名称" prop="name")
+            el-input(v-model="ruleForm.name")
+          el-form-item(label="活动区域" prop="region")
+            el-select(v-model="ruleForm.region" placeholder="请选择活动区域")
+              el-option(label="区域一" value="shanghai")
 </template>
 
 <script>
 export default {
   name: 'VueLearning',
+  props: {
+    values: {
+      type: Array,
+      default: () => []
+    }
+  },
   data () {
     return {
       activeKey: ['1', '2', '3'],
@@ -117,20 +141,38 @@ export default {
             }
           ]
         }
-      ]
+      ],
+      antdForm: this.$form.createForm(this),
+      formItemLayout: {
+        labelCol: { span: 4 },
+        wrapperCol: { span: 8 }
+      },
+      ruleForm: {
+        name: '',
+        region: ''
+      },
+      rules: {
+        name: [
+          { required: true, message: '请输入活动名称', trigger: 'blur' },
+          { min: 3, max: 5, message: '长度在 3 到 5 个字符', trigger: 'blur' }
+        ],
+        region: [
+          { required: true, message: '请选择活动区域', trigger: 'change' }
+        ]
+      }
     }
   },
   methods: {
-    onSelect(key) {
+    onSelect (key) {
       this.getCheckedNode(this.treeData, key[0])
     },
     // 按钮事件
-    getNode() {
+    getNode () {
       this.getCheckedNode(this.treeData, '1-2-1')
     },
     // 递归遍历树结构数据 改变选中节点状态
-    getCheckedNode(treeList, key) {
-      for(let i = 0; i < treeList.length; i++) {
+    getCheckedNode (treeList, key) {
+      for (let i = 0; i < treeList.length; i++) {
         if (treeList[i].key === key) {
           treeList[i].title = 'selected'
           break
@@ -139,7 +181,6 @@ export default {
         }
       }
     },
-    // 
     changeArray () {
       // 通过索引直接修改数据无法触发视图更新
       this.items[0] = { title: 't6', desc: 'title-6' }
@@ -148,8 +189,16 @@ export default {
     message (msg) {
       alert(msg)
     },
-    message (msg) {
-      alert(msg)
+    changeValues () {
+      this.values.push('0000')
+    }
+  },
+  watch: {
+    values: {
+      handler (newArr, oldArr) {
+        console.log(newArr)
+      },
+      deep: true
     }
   }
 }
