@@ -41,7 +41,7 @@
           a-form-item(label="nickname" :label-col="formItemLayout.labelCol" :wrapper-col="formItemLayout.wrapperCol")
             a-input(v-decorator="['nickname', { rules: [{ required: true, message: 'Please input your nickname' }] }]")
     el-collapse
-      el-collapse-item(title="element-ui的form表单性能" name="1") 
+      el-collapse-item(title="element-ui的form表单性能" name="1")
         el-form(:model="ruleForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm")
           el-form-item(label="活动名称" prop="name")
             el-input(v-model="ruleForm.name")
