@@ -29,8 +29,11 @@
             router-link(to="/VueLearning" class="link")
               span VueLearning
           a-menu-item(key="23")
-            router-link(to="" class="link")
-              span option3
+            router-link(to="/Chapter_4" class="link")
+              span Chapter_4
+          a-menu-item(key="24")
+            router-link(to="/Chapter_6" class="link")
+              span Chapter_6
     a-layout
       a-layout-header(style="background: #fff; padding: 0")
         a-icon(class="trigger" :type="collapsed ? 'menu-unfold' : 'menu-fold'" @click="()=> collapsed = !collapsed")
@@ -51,7 +54,7 @@ export default {
     }
   },
   created () {
-    this.$router.push({ path: '/VueLearning' })
+    this.$router.push({ path: '/Chapter_4' })
   },
   methods: {}
 }

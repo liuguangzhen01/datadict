@@ -27,6 +27,16 @@ export default new Router({
           path: '/VueLearning',
           name: 'VueLearning',
           component: () => import('@/views/vueJs/VueLearning.vue')
+        },
+        {
+          path: '/Chapter_4',
+          name: 'Chapter_4',
+          component: () => import('@/views/vueJs/Chapter_4.vue')
+        },
+        {
+          path: '/Chapter_6',
+          name: 'Chapter_6',
+          component: () => import('@/views/vueJs/Chapter_6.vue')
         }
       ]
     }
