@@ -1,6 +1,6 @@
 <template lang="pug">
   draggable(:list="list" ghost-class="ghost")
-    div(v-for="item in list" :key="item.id" style="cursor: pointer;border: 1px solid red; width: 100px;") {{item.name}}
+    div(v-for="item in list" :key="item.id" class="item-style") {{item.name}}
 </template>
 
 <script>
@@ -20,6 +20,14 @@ export default {
         {
           id: '3',
           name: '王五'
+        },
+        {
+          id: '4',
+          name: '刘六'
+        },
+        {
+          id: '5',
+          name: 'Sam'
         }
       ]
     }
@@ -34,4 +42,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.item-style {
+  cursor: pointer;
+  border: 1px solid red;
+  width: 100px;
+  margin-bottom: 12px;
+}
 </style>
