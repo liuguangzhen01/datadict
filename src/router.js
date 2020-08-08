@@ -37,6 +37,11 @@ export default new Router({
           path: '/Chapter_6',
           name: 'Chapter_6',
           component: () => import('@/views/vueJs/Chapter_6.vue')
+        },
+        {
+          path: '/VueDraggable',
+          name: 'VueDraggable',
+          component: () => import('@/views/vueJs/VueDraggable.vue')
         }
       ]
     }

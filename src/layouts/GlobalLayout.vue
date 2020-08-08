@@ -34,6 +34,9 @@
           a-menu-item(key="24")
             router-link(to="/Chapter_6" class="link")
               span Chapter_6
+          a-menu-item(key="25")
+            router-link(to="/VueDraggable" class="link")
+              span VueDraggable
     a-layout
       a-layout-header(style="background: #fff; padding: 0")
         a-icon(class="trigger" :type="collapsed ? 'menu-unfold' : 'menu-fold'" @click="()=> collapsed = !collapsed")

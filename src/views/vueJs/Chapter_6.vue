@@ -12,6 +12,10 @@
       div(class="outside" @click="outside") 外面
         div(class="center" @click="center") 中间
           div(class="inside" @click="inside") 里面
+    a-collapse-panel(class="panel" header="系统修饰键" key="2")
+      div .ctrl|.alt|.shift|.meta
+      div 系统修饰键与常规按键不同，在和keyup一起使用时，事件触发时系统修饰键必须处于按下状态；
+      a-input(@keyup.shift.enter="name" type="text")
 </template>
 
 <script>
@@ -31,6 +35,9 @@ export default {
     },
     inside () {
       alert('里面的div')
+    },
+    name () {
+      alert('name')
     }
   }
 }
@@ -53,5 +60,8 @@ export default {
   width: 100px;
   height: 100px;
   background: yellow;
+}
+.panel {
+  text-align: left;
 }
 </style>
